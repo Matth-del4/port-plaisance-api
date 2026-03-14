@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestion des Utilisateurs</title>
+    <link rel="stylesheet" href="/dashboard.css" />
+    <link rel="stylesheet" href="/crud.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">Port Russell</div>
+      <ul class="nav-menu">
+        <li><a href="/dashboard">Accueil</a></li>
+        <li><a href="/catways-page">Catways</a></li>
+        <li><a href="/reservations-page">Réservations</a></li>
+        <li><a href="/users-page">Utilisateurs</a></li>
+        <li><a href="/api-docs" target="_blank">Documentation</a></li>
+        <li><a href="#" id="logoutBtn">Déconnexion</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <header class="page-header">
+        <h2>Gestion des Utilisateurs</h2>
+        <button id="addBtn" class="btn-primary">Nouvel Utilisateur</button>
+      </header>
+
+      <div id="usersList"></div>
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3 id="modalTitle">Nouvel Utilisateur</h3>
+          <form id="userForm">
+            <div class="form-group">
+              <label for="username">Nom d'utilisateur *</label>
+              <input type="text" id="username" required />
+            </div>
+            <div class="form-group">
+              <label for="email">Email *</label>
+              <input type="email" id="email" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe *</label>
+              <input type="password" id="password" minlength="6" required />
+            </div>
+            <button type="submit" class="btn-primary">Enregistrer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/users.js"></script>
+  </body>
+</html>

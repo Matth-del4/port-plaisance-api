@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gestion des Réservations</title>
+    <link rel="stylesheet" href="/dashboard.css" />
+    <link rel="stylesheet" href="/crud.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">Port Russell</div>
+      <ul class="nav-menu">
+        <li><a href="/dashboard">Accueil</a></li>
+        <li><a href="/catways-page">Catways</a></li>
+        <li><a href="/reservations-page">Réservations</a></li>
+        <li><a href="/users-page">Utilisateurs</a></li>
+        <li><a href="/api-docs" target="_blank">Documentation</a></li>
+        <li><a href="#" id="logoutBtn">Déconnexion</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <header class="page-header">
+        <h2>Gestion des Réservations</h2>
+        <button id="addBtn" class="btn-primary">Nouvelle Réservation</button>
+      </header>
+
+      <div id="reservationsList"></div>
+
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h3 id="modalTitle">Nouvelle Réservation</h3>
+          <form id="reservationForm">
+            <div class="form-group">
+              <label for="catwayNumber">Numéro Catway *</label>
+              <select id="catwayNumber" required></select>
+            </div>
+            <div class="form-group">
+              <label for="clientName">Nom du client *</label>
+              <input type="text" id="clientName" required />
+            </div>
+            <div class="form-group">
+              <label for="boatName">Nom du bateau *</label>
+              <input type="text" id="boatName" required />
+            </div>
+            <div class="form-group">
+              <label for="startDate">Date de début *</label>
+              <input type="date" id="startDate" required />
+            </div>
+            <div class="form-group">
+              <label for="endDate">Date de fin *</label>
+              <input type="date" id="endDate" required />
+            </div>
+            <button type="submit" class="btn-primary">Enregistrer</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="/reservations.js"></script>
+  </body>
+</html>

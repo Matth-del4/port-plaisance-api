@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Port de Plaisance Russell - Accueil</title>
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <header>
+        <h1>Port de Plaisance Russell</h1>
+        <p>Système de gestion des réservations de catways</p>
+      </header>
+
+      <main>
+        <section class="info">
+          <h2>Bienvenue</h2>
+          <p>
+            Cette application permet à la capitainerie de gérer les réservations
+            des catways du port de plaisance de Russell.
+          </p>
+          <p>
+            Connectez-vous pour accéder au tableau de bord et gérer les catways,
+            réservations et utilisateurs.
+          </p>
+          <p>
+            <a href="/api-docs" target="_blank">Documentation de l'API</a>
+          </p>
+        </section>
+
+        <section class="login-form">
+          <h2>Connexion</h2>
+          <form id="loginForm">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input type="password" id="password" name="password" required />
+            </div>
+            <button type="submit">Se connecter</button>
+          </form>
+          <div id="message"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/app.js"></script>
+  </body>
+</html>

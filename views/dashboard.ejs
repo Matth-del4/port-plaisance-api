@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Tableau de bord - Port de Plaisance</title>
+    <link rel="stylesheet" href="/dashboard.css" />
+  </head>
+  <body>
+    <nav class="navbar">
+      <div class="nav-brand">Port Russell</div>
+      <ul class="nav-menu">
+        <li><a href="/dashboard">Accueil</a></li>
+        <li><a href="/catways-page">Catways</a></li>
+        <li><a href="/reservations-page">Réservations</a></li>
+        <li><a href="/users-page">Utilisateurs</a></li>
+        <li><a href="/api-docs" target="_blank">Documentation</a></li>
+        <li><a href="#" id="logoutBtn">Déconnexion</a></li>
+      </ul>
+    </nav>
+
+    <div class="container">
+      <header class="dashboard-header">
+        <div class="user-info">
+          <h2>Bienvenue, <span id="username"></span></h2>
+          <p>Email : <span id="userEmail"></span></p>
+        </div>
+        <div class="date-info">
+          <p id="currentDate"></p>
+        </div>
+      </header>
+
+      <main>
+        <section class="reservations-section">
+          <h3>Réservations en cours</h3>
+          <div id="reservationsTable"></div>
+        </section>
+      </main>
+    </div>
+
+    <script src="/dashboard.js"></script>
+  </body>
+</html>

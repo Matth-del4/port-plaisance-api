@@ -52,8 +52,8 @@ userForm.addEventListener("submit", async (e) => {
 
   try {
     const url = editingEmail
-      ? `http://localhost:3000/users/${editingEmail}`
-      : "http://localhost:3000/users";
+      ? `https://port-plaisance-api-qjgi.onrender.com/users/${editingEmail}`
+      : "https://port-plaisance-api-qjgi.onrender.com/users";
 
     const method = editingEmail ? "PUT" : "POST";
 
@@ -80,7 +80,9 @@ userForm.addEventListener("submit", async (e) => {
 
 async function loadUsers() {
   try {
-    const response = await fetch("http://localhost:3000/users");
+    const response = await fetch(
+      "https://port-plaisance-api-qjgi.onrender.com/users",
+    );
     const users = await response.json();
     displayUsers(users);
   } catch (error) {
@@ -116,7 +118,9 @@ function displayUsers(users) {
 
 async function editUser(email) {
   try {
-    const response = await fetch(`http://localhost:3000/users/${email}`);
+    const response = await fetch(
+      `https://port-plaisance-api-qjgi.onrender.com/users/${email}`,
+    );
     const user = await response.json();
 
     editingEmail = email;
@@ -136,12 +140,15 @@ async function deleteUser(email) {
   if (!confirm("Êtes-vous sûr de vouloir supprimer cet utilisateur ?")) return;
 
   try {
-    const response = await fetch(`http://localhost:3000/users/${email}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
+    const response = await fetch(
+      `https://port-plaisance-api-qjgi.onrender.com/users/${email}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
 
     if (response.ok) {
       loadUsers();

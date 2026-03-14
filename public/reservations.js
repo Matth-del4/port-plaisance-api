@@ -44,7 +44,9 @@ window.addEventListener("click", (e) => {
 
 async function loadCatwaysForSelect() {
   try {
-    const response = await fetch("http://localhost:3000/catways");
+    const response = await fetch(
+      "https://port-plaisance-api-qjgi.onrender.com/catways",
+    );
     const catways = await response.json();
 
     const select = document.getElementById("catwayNumber");
@@ -71,8 +73,8 @@ reservationForm.addEventListener("submit", async (e) => {
 
   try {
     const url = editingId
-      ? `http://localhost:3000/catways/${editingCatwayNumber}/reservations/${editingId}`
-      : `http://localhost:3000/catways/${catwayNumber}/reservations`;
+      ? `https://port-plaisance-api-qjgi.onrender.com/catways/${editingCatwayNumber}/reservations/${editingId}`
+      : `https://port-plaisance-api-qjgi.onrender.com/catways/${catwayNumber}/reservations`;
 
     const method = editingId ? "PUT" : "POST";
 
@@ -99,13 +101,15 @@ reservationForm.addEventListener("submit", async (e) => {
 
 async function loadReservations() {
   try {
-    const response = await fetch("http://localhost:3000/catways");
+    const response = await fetch(
+      "https://port-plaisance-api-qjgi.onrender.com/catways",
+    );
     const catways = await response.json();
 
     let reservations = [];
     for (let catway of catways) {
       const resResponse = await fetch(
-        `http://localhost:3000/catways/${catway.catwayNumber}/reservations`,
+        `https://port-plaisance-api-qjgi.onrender.com/catways/${catway.catwayNumber}/reservations`,
       );
       const res = await resResponse.json();
       reservations = reservations.concat(res);
@@ -149,7 +153,7 @@ function displayReservations(reservations) {
 async function editReservation(catwayNumber, id) {
   try {
     const response = await fetch(
-      `http://localhost:3000/catways/${catwayNumber}/reservations/${id}`,
+      `https://port-plaisance-api-qjgi.onrender.com/catways/${catwayNumber}/reservations/${id}`,
     );
     const reservation = await response.json();
 
@@ -177,7 +181,7 @@ async function deleteReservation(catwayNumber, id) {
 
   try {
     const response = await fetch(
-      `http://localhost:3000/catways/${catwayNumber}/reservations/${id}`,
+      `https://port-plaisance-api-qjgi.onrender.com/catways/${catwayNumber}/reservations/${id}`,
       {
         method: "DELETE",
         headers: {

@@ -51,8 +51,8 @@ catwayForm.addEventListener("submit", async (e) => {
 
   try {
     const url = editingId
-      ? `http://localhost:3000/catways/${editingId}`
-      : "http://localhost:3000/catways";
+      ? `https://port-plaisance-api-qjgi.onrender.com/catways/${editingId}`
+      : "https://port-plaisance-api-qjgi.onrender.com/catways";
 
     const method = editingId ? "PUT" : "POST";
 
@@ -79,7 +79,9 @@ catwayForm.addEventListener("submit", async (e) => {
 
 async function loadCatways() {
   try {
-    const response = await fetch("http://localhost:3000/catways");
+    const response = await fetch(
+      "https://port-plaisance-api-qjgi.onrender.com/catways",
+    );
     const catways = await response.json();
     displayCatways(catways);
   } catch (error) {
@@ -116,7 +118,9 @@ function displayCatways(catways) {
 
 async function editCatway(id) {
   try {
-    const response = await fetch(`http://localhost:3000/catways/${id}`);
+    const response = await fetch(
+      `https://port-plaisance-api-qjgi.onrender.com/catways/${id}`,
+    );
     const catway = await response.json();
 
     editingId = id;
@@ -135,12 +139,15 @@ async function deleteCatway(id) {
   if (!confirm("Êtes-vous sûr de vouloir supprimer ce catway ?")) return;
 
   try {
-    const response = await fetch(`http://localhost:3000/catways/${id}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${token}`,
+    const response = await fetch(
+      `https://port-plaisance-api-qjgi.onrender.com/catways/${id}`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
       },
-    });
+    );
 
     if (response.ok) {
       loadCatways();

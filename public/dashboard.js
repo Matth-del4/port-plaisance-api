@@ -35,13 +35,15 @@ document.getElementById("logoutBtn").addEventListener("click", (e) => {
 
 async function loadReservations() {
   try {
-    const response = await fetch("http://localhost:3000/catways");
+    const response = await fetch(
+      "https://port-plaisance-api-qjgi.onrender.com/catways",
+    );
     const catways = await response.json();
 
     let reservations = [];
     for (let catway of catways) {
       const resResponse = await fetch(
-        `http://localhost:3000/catways/${catway.catwayNumber}/reservations`,
+        `https://port-plaisance-api-qjgi.onrender.com/catways/${catway.catwayNumber}/reservations`,
       );
       const res = await resResponse.json();
       reservations = reservations.concat(res);
